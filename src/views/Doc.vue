@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Topnav>
+    <Topnav />
     <div class="content">
       <aside>
         <h2>组件列表</h2>
@@ -29,3 +29,20 @@ export default {
   components: { Topnav },
 };
 </script>
+<style  lang="scss" scoped>
+aside {
+  background: lightblue;
+  width: 150px;
+  padding: 16px;
+  top: 0;
+  left: 0;
+  > h2 {
+    margin-bottom: 4px;
+  }
+  > ol {
+    > li {
+      padding: 4px 0;
+    }
+  }
+}
+</style>
