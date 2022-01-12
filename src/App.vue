@@ -3,13 +3,15 @@
   <router-view />
 </template>
 
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts">
+import { ref } from "vue";
+import { provide } from "vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  setup() {
+    const menuVisible = ref(false);
+    provide("menuVisible", menuVisible); //set
   },
 };
 </script>
