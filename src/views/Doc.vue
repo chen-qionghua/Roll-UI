@@ -19,13 +19,16 @@
           </li>
         </ol>
       </aside>
-      <main>主内容</main>
+      <main>
+        <router-view />
+      </main>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { inject, Ref } from "vue";
 import Topnav from "../components/Topnav.vue";
+
 export default {
   components: { Topnav },
   setup() {
