@@ -1,5 +1,11 @@
 <template>
-  <button @click="toggle" :class="{ checked: value }"><span></span></button>
+  <button
+    class="roll-switch"
+    @click="toggle"
+    :class="{ 'roll-checked': value }"
+  >
+    <span></span>
+  </button>
 </template>
 <script lang="ts">
 export default {
@@ -14,10 +20,10 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 $h: 22px;
 $h2: $h - 4px;
-button {
+.roll-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -34,10 +40,10 @@ button {
     border-radius: $h2/2;
     transition: all 250ms;
   }
-  &.checked {
+  &.roll-checked {
     background: #1890ff;
   }
-  &.checked > span {
+  &.roll-checked > span {
     left: calc(100% - #{$h2} - 2px);
   }
   &:focus {
@@ -48,7 +54,7 @@ button {
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.roll-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
