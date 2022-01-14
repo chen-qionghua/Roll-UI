@@ -39,8 +39,7 @@ export default {
         [`roll-level-${level}`]: level,
       };
     });
-    console.log("props:", { ...props });
-    console.log("attrs:", { ...context.attrs });
+
     return { classes };
   },
 };
