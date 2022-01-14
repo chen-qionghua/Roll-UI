@@ -1,6 +1,6 @@
 import { provide } from 'vue';
 <template>
-  <button class="roll-button" :class="classes">
+  <button class="roll-button" :class="classes" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -19,6 +19,10 @@ export default {
     level: {
       type: String,
       default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -41,6 +45,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .roll-button {
   box-sizing: border-box;
   height: $h;
@@ -143,6 +148,22 @@ $red: red;
       &:focus {
         color: darken($color: $red, $amount: 10%);
       }
+    }
+  }
+  &.roll-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.roll-theme-link,
+  &.roll-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
