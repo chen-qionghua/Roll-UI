@@ -1,18 +1,32 @@
 import { provide } from 'vue';
 <template>
-  <button class="roll-button" :class="{ [`roll-theme-${theme}`]: theme }">
+  <button class="roll-button" :class="classes">
     <slot />
   </button>
 </template>
 <script lang="ts">
+import { computed } from "@vue/reactivity";
 export default {
   props: {
     theme: {
       type: String,
       default: "button",
     },
+    size: {
+      type: String,
+      default: "normal",
+    },
   },
-  setup() {},
+  setup(props) {
+    const { theme, size } = props;
+    const classes = computed(() => {
+      return {
+        [`roll-theme-${theme}`]: theme,
+        [`roll-size-${size}`]: size,
+      };
+    });
+    return { classes };
+  },
 };
 </script>
 <style lang="scss" >
@@ -66,6 +80,18 @@ $radius: 4px;
     &:hover,
     &:focus {
       background: darken(white, 5%);
+    }
+  }
+  &.roll-theme-button {
+    &.roll-size-big {
+      font-size: 24px;
+      height: 48px;
+      padding: 0 16px;
+    }
+    &.roll-size-small {
+      font-size: 12px;
+      height: 20px;
+      padding: 0 4px;
     }
   }
 }
