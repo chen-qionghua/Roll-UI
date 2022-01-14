@@ -10,7 +10,7 @@
   <h1>示例2</h1>
   <div>
     <Button size="big">大大大</Button>
-    <Button size>普通通</Button>
+    <Button>普通通</Button>
     <Button size="small">小小小</Button>
   </div>
   <div>
@@ -22,6 +22,22 @@
     <Button theme="text" size="big">大大大</Button>
     <Button theme="text" size>普通通</Button>
     <Button theme="text" size="small">小小小</Button>
+  </div>
+  <h1>示例3</h1>
+  <div>
+    <Button level="main">主要按钮</Button>
+    <Button>普通按钮</Button>
+    <Button level="danger">危险按钮</Button>
+  </div>
+  <div>
+    <Button theme="link" level="main">主要链接按钮</Button>
+    <Button theme="link">普通链接按钮</Button>
+    <Button theme="link" level="danger">危险链接按钮</Button>
+  </div>
+  <div>
+    <Button theme="text" level="main">主要文本按钮</Button>
+    <Button theme="text" size>普通文本按钮</Button>
+    <Button theme="text" level="danger">危险文本按钮</Button>
   </div>
 </template>
 <script lang="ts">

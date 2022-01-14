@@ -16,13 +16,18 @@ export default {
       type: String,
       default: "normal",
     },
+    level: {
+      type: String,
+      default: "normal",
+    },
   },
   setup(props) {
-    const { theme, size } = props;
+    const { theme, size, level } = props;
     const classes = computed(() => {
       return {
         [`roll-theme-${theme}`]: theme,
         [`roll-size-${size}`]: size,
+        [`roll-level-${level}`]: level,
       };
     });
     return { classes };
@@ -35,6 +40,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: red;
 .roll-button {
   box-sizing: border-box;
   height: $h;
@@ -91,6 +97,53 @@ $radius: 4px;
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
+  }
+  &.roll-theme-button {
+    &.roll-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+      &:hover,
+      &:focus {
+        background: darken($color: $blue, $amount: 10%);
+        border-color: darken($color: $blue, $amount: 10%);
+      }
+    }
+    &.roll-level-danger {
+      background: $red;
+      border-color: $red;
+      color: white;
+      &:hover,
+      &:focus {
+        background: darken($color: $red, $amount: 10%);
+        border-color: darken($color: $red, $amount: 10%);
+      }
+    }
+  }
+  &.roll-theme-link {
+    &.roll-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($color: $red, $amount: 10%);
+      }
+    }
+  }
+  &.roll-theme-text {
+    &.roll-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: darken($color: $blue, $amount: 10%);
+      }
+    }
+    &.roll-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($color: $red, $amount: 10%);
+      }
+    }
   }
 }
 </style>
