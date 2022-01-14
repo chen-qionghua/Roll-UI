@@ -1,16 +1,18 @@
 <template>
   <template v-if="visible">
-    <div class="roll-dialog-overlay"></div>
+    <div class="roll-dialog-overlay" @click="OnClickOverlay"></div>
     <div class="roll-dialog-wrapper">
       <div class="roll-dialog">
-        <header>标题<span class="roll-dialog-close"></span></header>
+        <header>
+          标题<span @click="close" class="roll-dialog-close"></span>
+        </header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button>Cancel</Button>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -27,8 +29,37 @@ export default {
       type: Boolean,
       default: false,
     },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function,
+    },
   },
-  setup() {},
+  setup(props, context) {
+    const close = () => {
+      context.emit("update:visible", false);
+    };
+    const OnClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const ok = () => {
+      if (props.ok && props.ok() === true) {
+        close();
+      }
+    };
+    const cancel = () => {
+      context.emit("cancel");
+      close();
+    };
+    return { close, OnClickOverlay, ok, cancel };
+  },
 };
 </script>
 <style lang="scss">
@@ -46,6 +77,8 @@ $border-color: #d9d9d9;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     background: fade_out(black, 0.5);
     z-index: 10;
   }
@@ -78,7 +111,9 @@ $border-color: #d9d9d9;
     width: 16px;
     height: 16px;
     cursor: pointer;
-    &::before， &::after {
+
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       height: 1px;
@@ -87,6 +122,7 @@ $border-color: #d9d9d9;
       top: 50%;
       left: 50%;
     }
+
     &::before {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
