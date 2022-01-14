@@ -30,7 +30,7 @@ export default {
       default: false,
     },
   },
-  setup(props) {
+  setup(props, context) {
     const { theme, size, level } = props;
     const classes = computed(() => {
       return {
@@ -39,6 +39,8 @@ export default {
         [`roll-level-${level}`]: level,
       };
     });
+    console.log("props:", { ...props });
+    console.log("attrs:", { ...context.attrs });
     return { classes };
   },
 };
