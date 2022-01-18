@@ -16,11 +16,15 @@
       <div>npc</div>
     </template>
   </Dialog>
+  <h1>示例2</h1>
+  <Button @click="showDialog">show</Button>
 </template>
 <script lang="ts">
 import Dialog from "../libs/Dialog.vue";
 import Button from "../libs/Button.vue";
 import { ref } from "vue";
+import { openDialog } from "../libs/openDialog";
+
 export default {
   components: { Dialog, Button },
   setup() {
@@ -29,10 +33,22 @@ export default {
       x.value = !x.value;
     };
     const f1 = () => {
-      return false;
+      return true;
     };
     const f2 = () => {};
-    return { x, toggle, f1, f2 };
+    const showDialog = () => {
+      openDialog({
+        title: "show标题",
+        content: "show内容",
+        ok() {
+          console.log("ok");
+        },
+        cancel() {
+          console.log("cancel");
+        },
+      });
+    };
+    return { x, toggle, f1, f2, showDialog };
   },
 };
 </script>
