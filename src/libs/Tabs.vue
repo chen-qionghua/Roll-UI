@@ -1,16 +1,21 @@
 <template>
   <div class="roll-tabs">
-    <div class="roll-tabs-nav">
+    <div class="roll-tabs-nav" ref="container">
       <div
         class="roll-tabs-nav-item"
         @click="select(t)"
         :class="{ selected: t === selected }"
         v-for="(t, index) in titles"
         :key="index"
+        :ref="
+          (el) => {
+            if (el) navItems[index] = el;
+          }
+        "
       >
         {{ t }}
       </div>
-      <div class="roll-tabs-nav-indicator"></div>
+      <div class="roll-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="roll-tabs-content">
       <component
@@ -24,7 +29,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, onUpdated, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   components: { Tab },
@@ -34,6 +39,25 @@ export default {
     },
   },
   setup(props, context) {
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    const x = () => {
+      const divs = navItems.value;
+      const result = divs.find((div) => div.classList.contains("selected"));
+      const { width } = result.getBoundingClientRect();
+      const { left: left1 } = container.value.getBoundingClientRect();
+      const { left: left2 } = result.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.width = width + "px";
+      indicator.value.style.left = left + "px";
+    };
+    onMounted(
+      //onMounted只在第一次渲染执行
+      x
+    );
+    onUpdated(x);
+
     const defaults = context.slots.default();
 
     defaults.map((tag) => {
@@ -56,7 +80,15 @@ export default {
       context.emit("update:selected", title);
     };
 
-    return { defaults, titles, current, select };
+    return {
+      defaults,
+      titles,
+      current,
+      select,
+      navItems,
+      indicator,
+      container,
+    };
   },
 };
 </script>
@@ -90,6 +122,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
   &-content {
