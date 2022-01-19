@@ -12,7 +12,13 @@
       </div>
     </div>
     <div class="roll-tabs-content">
-      <component class="roll-tabs-content-item" :is="current"></component>
+      <component
+        class="roll-tabs-content-item"
+        :class="{ selected: c.props.title === selected }"
+        v-for="(c, index) in defaults"
+        :key="index"
+        :is="c"
+      ></component>
     </div>
   </div>
 </template>
@@ -28,19 +34,23 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default();
+
     defaults.map((tag) => {
       if (tag.type !== Tab) {
         throw new Error("Tabs子标签必须是Tab");
       }
     });
+
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
+
     const current = computed(() => {
-      return defaults.filter((tag) => {
-        return tag.props.title === props.selected;
-      })[0];
+      return defaults.find((tag) => {
+        tag.props.title === props.selected;
+      });
     });
+
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
@@ -75,6 +85,12 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
