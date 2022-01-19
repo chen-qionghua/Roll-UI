@@ -29,7 +29,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
 import Tab from "./Tab.vue";
 export default {
   components: { Tab },
@@ -42,19 +42,16 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const x = () => {
-      const { width } = selectedItem.value.getBoundingClientRect();
-      const { left: left1 } = container.value.getBoundingClientRect();
-      const { left: left2 } = selectedItem.value.getBoundingClientRect();
-      const left = left2 - left1;
-      indicator.value.style.width = width + "px";
-      indicator.value.style.left = left + "px";
-    };
-    onMounted(
-      //onMounted只在第一次渲染执行
-      x
-    );
-    onUpdated(x);
+    onMounted(() => {
+      watchEffect(() => {
+        const { width } = selectedItem.value.getBoundingClientRect();
+        const { left: left1 } = container.value.getBoundingClientRect();
+        const { left: left2 } = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.width = width + "px";
+        indicator.value.style.left = left + "px";
+      });
+    });
 
     const defaults = context.slots.default();
 
@@ -68,12 +65,6 @@ export default {
       return tag.props.title;
     });
 
-    const current = computed(() => {
-      return defaults.find((tag) => {
-        tag.props.title === props.selected;
-      });
-    });
-
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
@@ -81,7 +72,7 @@ export default {
     return {
       defaults,
       titles,
-      current,
+
       select,
       selectedItem,
       indicator,
