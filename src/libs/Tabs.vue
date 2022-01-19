@@ -3,6 +3,7 @@
     <div class="roll-tabs-nav">
       <div
         class="roll-tabs-nav-item"
+        @click="select(t)"
         :class="{ selected: t === selected }"
         v-for="(t, index) in titles"
         :key="index"
@@ -11,16 +12,12 @@
       </div>
     </div>
     <div class="roll-tabs-content">
-      <component
-        class="roll-tabs-content-item"
-        v-for="(c, index) in defaults"
-        :is="c"
-        :key="index"
-      ></component>
+      <component class="roll-tabs-content-item" :is="current"></component>
     </div>
   </div>
 </template>
 <script lang="ts">
+import { computed } from "vue";
 import Tab from "./Tab.vue";
 export default {
   components: { Tab },
@@ -39,7 +36,16 @@ export default {
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
-    return { defaults, titles };
+    const current = computed(() => {
+      return defaults.filter((tag) => {
+        return tag.props.title === props.selected;
+      })[0];
+    });
+    const select = (title: String) => {
+      context.emit("update:selected", title);
+    };
+
+    return { defaults, titles, current, select };
   },
 };
 </script>
