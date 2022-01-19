@@ -1,7 +1,12 @@
 <template>
   <div class="roll-tabs">
     <div class="roll-tabs-nav">
-      <div class="roll-tabs-nav-item" v-for="(t, index) in titles" :key="index">
+      <div
+        class="roll-tabs-nav-item"
+        :class="{ selected: t === selected }"
+        v-for="(t, index) in titles"
+        :key="index"
+      >
         {{ t }}
       </div>
     </div>
@@ -19,6 +24,11 @@
 import Tab from "./Tab.vue";
 export default {
   components: { Tab },
+  props: {
+    selected: {
+      type: String,
+    },
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.map((tag) => {
