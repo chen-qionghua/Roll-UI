@@ -18,13 +18,7 @@
       <div class="roll-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="roll-tabs-content">
-      <component
-        class="roll-tabs-content-item"
-        :class="{ selected: c.props.title === selected }"
-        v-for="(c, index) in defaults"
-        :key="index"
-        :is="c"
-      ></component>
+      <component :key="current.props.title" :is="current"></component>
     </div>
   </div>
 </template>
@@ -68,11 +62,16 @@ export default {
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
+    const current = computed(() => {
+      return defaults.find((tag) => {
+        tag.props.title === props.selected;
+      });
+    });
 
     return {
       defaults,
       titles,
-
+      current,
       select,
       selectedItem,
       indicator,
@@ -116,12 +115,6 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
