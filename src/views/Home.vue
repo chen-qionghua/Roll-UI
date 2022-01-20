@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="topnavAndBanner">
     <Topnav />
     <div class="banner">
       <h1>ROLL</h1>
@@ -18,13 +18,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.topnavAndBanner {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
 .banner {
   padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
   > .actions {
     padding: 8px 0;
     a {
