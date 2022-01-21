@@ -1,0 +1,13 @@
+"filename", "language", "JSON", "HTML", "TypeScript", "Vue", "SCSS", "comment", "blank", "total"
+"c:\Users\11691\Desktop\x\roll_ui\index.html", "HTML", 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\11691\Desktop\x\roll_ui\package.json", "JSON", 1, 0, 0, 0, 0, 0, 1, 2
+"c:\Users\11691\Desktop\x\roll_ui\src\components\Topnav.vue", "Vue", 0, 0, 0, 14, 0, 0, 0, 14
+"c:\Users\11691\Desktop\x\roll_ui\src\index.scss", "SCSS", 0, 0, 0, 0, 9, 0, 1, 10
+"c:\Users\11691\Desktop\x\roll_ui\src\main.ts", "TypeScript", 0, 0, 1, 0, 0, 0, -1, 0
+"c:\Users\11691\Desktop\x\roll_ui\src\router.ts", "TypeScript", 0, 0, 6, 0, 0, 0, 0, 6
+"c:\Users\11691\Desktop\x\roll_ui\src\views\Doc.vue", "Vue", 0, 0, 0, 16, 0, 0, 4, 20
+"c:\Users\11691\Desktop\x\roll_ui\src\views\Home.vue", "Vue", 0, 0, 0, 68, 0, 0, 2, 70
+"c:\Users\11691\Desktop\x\roll_ui\src\views\Install.vue", "Vue", 0, 0, 0, 10, 0, 0, 1, 11
+"c:\Users\11691\Desktop\x\roll_ui\src\views\Intro.vue", "Vue", 0, 0, 0, 16, 0, 0, 0, 16
+"c:\Users\11691\Desktop\x\roll_ui\src\views\getStart.vue", "Vue", 0, 0, 0, 21, 0, 0, 2, 23
+"Total", "-", 1, 1, 7, 145, 9, 0, 10, 173
