@@ -1,0 +1,37 @@
+Date : 2022-01-23 02:42:49
+Directory : c:\Users\11691\Desktop\x\roll_ui
+Total : 10 files,  107 codes, 0 comments, 12 blanks, all 119 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Vue      |          9 |        106 |          0 |         12 |        118 |
+| JSON     |          1 |          1 |          0 |          0 |          1 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                |         10 |        107 |          0 |         12 |        119 |
+| src                                                              |          9 |        106 |          0 |         12 |        118 |
+| src\components                                                   |          9 |        106 |          0 |         12 |        118 |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                         | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\11691\Desktop\x\roll_ui\package.json                    | JSON     |          1 |          0 |          0 |          1 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Button1.demo.vue | Vue      |         14 |          0 |          0 |         14 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Button2.demo.vue | Vue      |         28 |          0 |          0 |         28 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Button3.demo.vue | Vue      |         30 |          0 |          1 |         31 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Button4.demo.vue | Vue      |         16 |          0 |          1 |         17 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Button5.demo.vue | Vue      |         17 |          0 |          1 |         18 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\ButtonDemo.vue   | Vue      |        -43 |          0 |          1 |        -42 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Demo.vue         | Vue      |         66 |          0 |          6 |         72 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Switch2.demo.vue | Vue      |          3 |          0 |          0 |          3 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\SwitchDemo.vue   | Vue      |        -25 |          0 |          2 |        -23 |
+| Total                                                            |          |        107 |          0 |         12 |        119 |
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
