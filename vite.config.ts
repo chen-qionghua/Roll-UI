@@ -2,5 +2,6 @@
 import { md } from "./plugins/md"
 
 export default {
-  Plugin: [md()]
+
+  plugins: [md()]
 }

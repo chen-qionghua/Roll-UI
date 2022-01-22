@@ -1,7 +1,9 @@
-//@ts-nocheck
+// @ts-nocheck
 import path from 'path'
 import fs from 'fs'
-import marked from 'marked'
+import { marked } from 'marked'
+
+
 
 const mdToJs = str => {
   const content = JSON.stringify(marked(str))
@@ -10,9 +12,9 @@ const mdToJs = str => {
 
 export function md() {
   return {
-    configureServer: [
+    configureServer: [ // 用于开发
       async ({ app }) => {
-        app.use(async (ctx, next) => {
+        app.use(async (ctx, next) => { // koa
           if (ctx.path.endsWith('.md')) {
             ctx.type = 'js'
             const filePath = path.join(process.cwd(), ctx.path)
@@ -20,13 +22,12 @@ export function md() {
           } else {
             await next()
           }
-
         })
-      }
+      },
     ],
-    transforms: [{
+    transforms: [{  // 用于 rollup // 插件
       test: context => context.path.endsWith('.md'),
       transform: ({ code }) => mdToJs(code)
     }]
   }
-}
+} 
