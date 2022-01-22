@@ -1,0 +1,63 @@
+Date : 2022-01-22 15:11:47
+Directory : c:\Users\11691\Desktop\x\roll_ui
+Total : 28 files,  1239 codes, 5 comments, 56 blanks, all 1300 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Vue        |         15 |      1,014 |          1 |         25 |      1,040 |
+| TypeScript |          6 |        109 |          2 |         11 |        122 |
+| SCSS       |          2 |         46 |          2 |          5 |         53 |
+| Markdown   |          3 |         37 |          0 |         11 |         48 |
+| JSON       |          1 |         19 |          0 |          1 |         20 |
+| HTML       |          1 |         14 |          0 |          3 |         17 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                              |         28 |      1,239 |          5 |         56 |      1,300 |
+| plugins                                                        |          1 |         28 |          1 |          4 |         33 |
+| src                                                            |         24 |      1,174 |          3 |         46 |      1,223 |
+| src\components                                                 |          7 |        268 |          0 |          4 |        272 |
+| src\libs                                                       |          7 |        543 |          1 |         12 |        556 |
+| src\markdown                                                   |          3 |         37 |          0 |         11 |         48 |
+| src\views                                                      |          2 |        214 |          0 |          7 |        221 |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                       | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\11691\Desktop\x\roll_ui\index.html                    | HTML       |         14 |          0 |          3 |         17 |
+| c:\Users\11691\Desktop\x\roll_ui\package.json                  | JSON       |         19 |          0 |          1 |         20 |
+| c:\Users\11691\Desktop\x\roll_ui\plugins\md.ts                 | TypeScript |         28 |          1 |          4 |         33 |
+| c:\Users\11691\Desktop\x\roll_ui\src\App.vue                   | Vue        |         22 |          0 |          2 |         24 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\ButtonDemo.vue | Vue        |         67 |          0 |          1 |         68 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\DialogDemo.vue | Vue        |         53 |          0 |          1 |         54 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\DocDemo.vue    | Vue        |          3 |          0 |          0 |          3 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Markdown.vue   | Vue        |         21 |          0 |          1 |         22 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\SwitchDemo.vue | Vue        |         16 |          0 |          0 |         16 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\TabsDemo.vue   | Vue        |         25 |          0 |          1 |         26 |
+| c:\Users\11691\Desktop\x\roll_ui\src\components\Topnav.vue     | Vue        |         83 |          0 |          0 |         83 |
+| c:\Users\11691\Desktop\x\roll_ui\src\index.scss                | SCSS       |         38 |          2 |          5 |         45 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\Button.vue           | Vue        |        193 |          1 |          1 |        195 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\Dialog.vue           | Vue        |        132 |          0 |          4 |        136 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\Switch.vue           | Vue        |         64 |          0 |          0 |         64 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\Tab.vue              | Vue        |          8 |          0 |          0 |          8 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\Tabs.vue             | Vue        |        113 |          0 |          7 |        120 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\openDialog.ts        | TypeScript |         25 |          0 |          0 |         25 |
+| c:\Users\11691\Desktop\x\roll_ui\src\libs\roll.scss            | SCSS       |          8 |          0 |          0 |          8 |
+| c:\Users\11691\Desktop\x\roll_ui\src\main.ts                   | TypeScript |         11 |          0 |          2 |         13 |
+| c:\Users\11691\Desktop\x\roll_ui\src\markdown\get-start.md     | Markdown   |         22 |          0 |          6 |         28 |
+| c:\Users\11691\Desktop\x\roll_ui\src\markdown\install.md       | Markdown   |         10 |          0 |          5 |         15 |
+| c:\Users\11691\Desktop\x\roll_ui\src\markdown\intro.md         | Markdown   |          5 |          0 |          0 |          5 |
+| c:\Users\11691\Desktop\x\roll_ui\src\router.ts                 | TypeScript |         36 |          0 |          3 |         39 |
+| c:\Users\11691\Desktop\x\roll_ui\src\shims-vue.d.ts            | TypeScript |          5 |          0 |          0 |          5 |
+| c:\Users\11691\Desktop\x\roll_ui\src\views\Doc.vue             | Vue        |        104 |          0 |          5 |        109 |
+| c:\Users\11691\Desktop\x\roll_ui\src\views\Home.vue            | Vue        |        110 |          0 |          2 |        112 |
+| c:\Users\11691\Desktop\x\roll_ui\vite.config.ts                | TypeScript |          4 |          1 |          2 |          7 |
+| Total                                                          |            |      1,239 |          5 |         56 |      1,300 |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
