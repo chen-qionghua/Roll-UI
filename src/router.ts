@@ -1,4 +1,6 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
+const history = createWebHashHistory();
+
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
@@ -8,9 +10,11 @@ import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 
 import Markdown from './components/Markdown.vue'
+import Intro from './markdown/intro.md'
+import Install from './markdown/install.md'
+import GetStart from './markdown/get-start.md'
 import { h } from 'vue';
-const history = createWebHashHistory();
-const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
+const md = String => h(Markdown, { content: String, key: String })
 
 export const router = createRouter({
   history: history,
@@ -19,9 +23,9 @@ export const router = createRouter({
     {
       path: '/doc', component: Doc, children: [
         { path: "", redirect: '/doc/intro' },//路径为空即二级组件的根展示Doc默认页面
-        { path: "intro", component: md('intro') },
-        { path: "install", component: md('install') },
-        { path: "get-start", component: md('get-start') },
+        { path: "intro", component: md(Intro) },
+        { path: "install", component: md(Install) },
+        { path: "get-start", component: md(GetStart) },
 
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
