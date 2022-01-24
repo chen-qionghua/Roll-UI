@@ -52,10 +52,23 @@ $black: #0f0f0f;
 }
 .features {
   margin: 64px;
-  width: 400px;
+  padding: 0 16px;
 
   @media (min-width: 800px) {
     width: 1200px;
+    > ul {
+      > li {
+        width: 50%;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    width: 1200px;
+    > ul {
+      > li {
+        width: 33.3333%;
+      }
+    }
   }
   > ul {
     display: flex;

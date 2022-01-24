@@ -14,9 +14,8 @@
 </template>
 <script lang="ts">
 import Button from "../libs/Button.vue";
-
 import "prismjs";
-import "prismjs/themes/prism-okaidia.min.css";
+import "prismjs/themes/prism-okaidia.css";
 import { computed, ref } from "vue";
 const Prism = (window as any).Prism;
 export default {
