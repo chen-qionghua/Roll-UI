@@ -49,7 +49,7 @@ export default {
 </script>
 <style  lang="scss" scoped>
 aside {
-  background: lightblue;
+  background: #d8e0ec;
   width: 150px;
   position: fixed;
   padding: 16px 0;
