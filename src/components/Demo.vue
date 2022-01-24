@@ -5,7 +5,8 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="codeVisible = !codeVisible">查看代码</Button>
+      <Button @click="hideCode" v-if="codeVisible">收起代码</Button>
+      <Button @click="showCode" v-else>显示代码</Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre class="language-html" v-html="html" />
@@ -32,7 +33,9 @@ export default {
         "html"
       );
     });
-    return { Prism, html, codeVisible };
+    const showCode = () => (codeVisible.value = true);
+    const hideCode = () => (codeVisible.value = false);
+    return { Prism, html, codeVisible, showCode, hideCode };
   },
 };
 </script>
@@ -60,6 +63,7 @@ $border-color: #d9d9d9;
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    transition: all 2s;
 
     > pre {
       line-height: 1.1;
