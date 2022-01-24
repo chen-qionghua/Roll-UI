@@ -18,7 +18,7 @@ export const router = createRouter({
     { path: '/', component: Home },
     {
       path: '/doc', component: Doc, children: [
-        { path: "", component: DocDemo },//路径为空即二级组件的根展示Doc默认页面
+        { path: "", redirect: '/doc/intro' },//路径为空即二级组件的根展示Doc默认页面
         { path: "intro", component: md('intro') },
         { path: "install", component: md('install') },
         { path: "get-start", component: md('get-start') },

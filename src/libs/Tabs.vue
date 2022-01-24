@@ -18,7 +18,7 @@
       <div class="roll-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="roll-tabs-content">
-      <component :key="current.props.title" :is="current"></component>
+      <component :key="current?.props.title" :is="current"></component>
     </div>
   </div>
 </template>
