@@ -20,7 +20,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" >
+
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 .roll-switch {
@@ -37,14 +38,14 @@ $h2: $h - 4px;
     height: $h2;
     width: $h2;
     background: white;
-    border-radius: $h2/2;
+    border-radius: $h2 / 2;
     transition: all 250ms;
   }
   &.roll-checked {
     background: #1890ff;
-  }
-  &.roll-checked > span {
-    left: calc(100% - #{$h2} - 2px);
+    > span {
+      left: calc(100% - #{$h2} - 2px);
+    }
   }
   &:focus {
     outline: none;
