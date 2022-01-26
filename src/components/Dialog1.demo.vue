@@ -19,8 +19,8 @@
   </div>
 </template>
 <script lang="ts">
-import Button from "../libs/Button.vue";
-import Dialog from "../libs/Dialog.vue";
+import { Button } from "../libs/index";
+import { Dialog } from "../libs/index";
 import { ref } from "vue";
 export default {
   components: { Button, Dialog },
