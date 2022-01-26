@@ -1,7 +1,7 @@
 // @ts-nocheck
 import path from 'path'
 import fs from 'fs'
-import { marked } from 'marked'
+import marked from 'marked'
 
 
 
@@ -27,7 +27,7 @@ export function md() {
     ],
     transforms: [{  // 用于 rollup // 插件
       test: context => context.path.endsWith('.md'),
-      transform: ({ code }) => mdToJs(code)
+      transform: ({ code }) => mdToJs(code) 
     }]
   }
-} 
+}
