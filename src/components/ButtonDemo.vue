@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts">
-import Button from "../libs/Button.vue";
 import Demo from "./Demo.vue";
 import Button1Demo from "./Button1.demo.vue";
 import Button2Demo from "./Button2.demo.vue";
