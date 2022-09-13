@@ -1,4 +1,3 @@
-import { provide } from 'vue';
 <template>
   <button class="roll-button" :class="classes" :disabled="disabled">
     <span class="roll-loadingIndicator" v-if="loading"></span>
@@ -12,14 +11,23 @@ export default {
     theme: {
       type: String,
       default: "button",
+      validator(value){
+        return value === 'link' || value === 'text'
+      }
     },
     size: {
       type: String,
       default: "normal",
+      validator(value){
+        return value === 'big' || value === 'small'
+      }
     },
     level: {
       type: String,
       default: "normal",
+      validator(value){
+        return value === 'main' || value === 'danger'
+      }
     },
     disabled: {
       type: Boolean,
