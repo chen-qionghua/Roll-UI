@@ -7,8 +7,14 @@
   </div>
 </template>
 <script lang="ts">
+import { createApp } from 'vue'
 import { Button } from "../libs/index";
+import chai from 'chai'
 export default {
   components: { Button },
 };
+{
+    const test = createApp(Button)
+    const ins =test.mount('#test')
+}
 </script>
