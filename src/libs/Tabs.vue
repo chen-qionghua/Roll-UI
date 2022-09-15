@@ -40,7 +40,7 @@ export default {
       watchEffect(
         () => {
           const { width } = selectedItem.value.getBoundingClientRect();
-          indicator.value.style.width = width + "px";
+          indicator.value.style.width = width + "px"; //设置indicator动态宽度
           const { left: left1 } = container.value.getBoundingClientRect();
           const { left: left2 } = selectedItem.value.getBoundingClientRect();
           const left = left2 - left1;
@@ -49,14 +49,15 @@ export default {
         { flush: "post" }
       );
     });
-    const defaults = context.slots.default();
+    const defaults = context.slots.default(); //存放子组件的各种信息
     defaults.forEach((tag) => {
+      //检查子组件类型，防止库使用者传错子组件
       if (tag.type !== Tab) {
         throw new Error("Tabs 子标签必须是 Tab");
       }
     });
     const current = computed(() => {
-      return defaults.find((tag) => tag.props.title === props.selected);
+      return defaults.find((tag) => tag.props.title === props.selected); //得到选中的当前子组件的VNode，模板中是为了取出子组件的文本内容
     });
     const titles = defaults.map((tag) => {
       return tag.props.title;

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :class="toastClasses" >
+  <div class="wrapper" :class="toastClasses">
     <div class="toast" ref="toastRef">
       <div class="message">
         {{ message }}
@@ -13,7 +13,7 @@
 </template>
 <script>
 import { ref, onMounted, nextTick } from "vue";
-import { getCurrentInstance,computed } from "vue";
+import { getCurrentInstance, computed } from "vue";
 
 export default {
   name: "RollToast",
@@ -53,11 +53,10 @@ export default {
     onMounted(() => {
       updateStyles();
     });
-    const toastClasses = computed(()=>{
-        return {
-            [`position-${proxy.position}`]:true
-        }
-        
+    const toastClasses = computed(() => {
+      return {
+        [`position-${proxy.position}`]: true,
+      };
     });
     const updateStyles = () => {
       nextTick(() => {
@@ -74,8 +73,9 @@ export default {
       }
     };
     const close = () => {
+      const container = document.querySelector("#toastWrapper");
       proxy.$el.remove();
-      proxy.$destroy();
+      document.body.removeChild(container);
     };
     const onClickClose = () => {
       close();
@@ -94,7 +94,7 @@ export default {
       execAutoClose,
       close,
       onClickClose,
-      toastClasses
+      toastClasses,
     };
   },
 };
@@ -134,7 +134,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
 .wrapper {
   z-index: 99;
   position: fixed;
-// position:relative;
+  // position:relative;
   left: 50%;
   transform: translateX(-50%);
   $animation-duration: 300ms;
