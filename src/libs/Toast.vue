@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="toastClasses" >
     <div class="toast" ref="toastRef">
       <div class="message">
         {{ message }}
@@ -13,7 +13,7 @@
 </template>
 <script>
 import { ref, onMounted, nextTick } from "vue";
-import { getCurrentInstance } from "vue";
+import { getCurrentInstance,computed } from "vue";
 
 export default {
   name: "RollToast",
@@ -52,7 +52,12 @@ export default {
     const lineRef = ref();
     onMounted(() => {
       updateStyles();
-      console.log('qqqqqqqqqqq',toastRef.value)
+    });
+    const toastClasses = computed(()=>{
+        return {
+            [`position-${proxy.position}`]:true
+        }
+        
     });
     const updateStyles = () => {
       nextTick(() => {
@@ -89,6 +94,7 @@ export default {
       execAutoClose,
       close,
       onClickClose,
+      toastClasses
     };
   },
 };
@@ -128,6 +134,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
 .wrapper {
   z-index: 99;
   position: fixed;
+// position:relative;
   left: 50%;
   transform: translateX(-50%);
   $animation-duration: 300ms;
@@ -147,7 +154,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
       animation: slide-up $animation-duration;
     }
   }
-  &.position-middle {
+  &.position-center {
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     .toast {
@@ -172,6 +179,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   .close {
     padding-left: 16px;
     flex-shrink: 0;
+    cursor: pointer;
   }
   .line {
     height: 100%;

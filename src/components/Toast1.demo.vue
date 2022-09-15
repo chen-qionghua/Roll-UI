@@ -15,8 +15,8 @@ export default {
     
     const showToast = ()=>{
         proxy.$toast({
-            message:`你的智商目前为 ${parseInt(Math.random()*100)}。你的智商需要充值！`,
-            duration:8000,
+            message:'你的智商目前为250。你的智商需要充值！',
+            duration:3000,
             position:'center',
             closeButton:{
                 text:'已充值',
