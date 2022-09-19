@@ -1,6 +1,6 @@
 <template>
     <div class="popover" ref="popoverRef">
-        <div ref="contentWrapperRef" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]:true}">
+        <div ref="contentWrapperRef" class="content-wrapper" v-if="visible" :class="`position-${position}`">
             <slot name="content" :close="close"></slot>
         </div>
         <span ref="triggerWrapperRef" style="display:indline-block">
