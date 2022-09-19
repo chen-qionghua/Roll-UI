@@ -16,7 +16,7 @@ export default {
       if (width <= 500) {
         menuVisible.value = false;
       }
-    });
+    }); 
     return { menuVisible, width };
   },
 };

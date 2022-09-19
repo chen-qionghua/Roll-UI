@@ -24,9 +24,9 @@ export default {
     },
     autoClose: {
       type: [Boolean, Number],
-      default: 5,
+      default: [true,2],
       validator(val) {
-        return val === false || typeof val === "number";
+        return typeof val[0] === "boolean" || typeof val[1] === "number";
       },
     },
     closeButton: {
@@ -52,6 +52,7 @@ export default {
     const lineRef = ref();
     onMounted(() => {
       updateStyles();
+      execAutoClose()
     });
     const toastClasses = computed(() => {
       return {

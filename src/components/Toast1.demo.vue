@@ -16,7 +16,7 @@ export default {
     const showToast = () => {
       proxy.$toast({
         message: "祝你平安喜乐",
-        duration: 3000,
+        autoClose: [true,3],
         position: "center",
         closeButton: {
           text: "朕已阅",

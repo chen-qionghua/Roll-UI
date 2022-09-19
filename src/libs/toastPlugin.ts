@@ -26,15 +26,8 @@ export default {
                 vm.component.props.closeButton.text = toastOptions.closeButton?.text || '关闭'
                 vm.component.props.position = toastOptions.position
                 vm.component.props.autoClose = toastOptions.autoClose
-                // setTimeout(()=>{
-                //     document.body.removeChild(container)
-                //     isToast = false
-                //     if(toastOptions.closeButton?.callback){
-                //         toastOptions.closeButton.callback()
-                //     }
-                // },duration)
-                isToast = false//出现bug，需要销毁之前div
                 
+                isToast = false
             }
         }
         
