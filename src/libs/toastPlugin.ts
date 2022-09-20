@@ -26,7 +26,6 @@ export default {
                 vm.component.props.closeButton.text = toastOptions.closeButton?.text || '关闭'
                 vm.component.props.position = toastOptions.position
                 vm.component.props.autoClose = toastOptions.autoClose
-                
                 isToast = false
             }
         }
