@@ -63,9 +63,8 @@ export default {
         const contentWrapper =document.querySelector('#contentWrapper') 
         //切换菜单到别的组件时，需要销毁现dom
         if(contentWrapper){
-            document.body.removeChild(contentWrapper)
-            // visible.value = false //打印为false 但dom节点无法销毁，思考原因？
-            //此组件手动操作dom后vue内部虚拟dom不知道/结构不同无法辨认，故数据驱动不成功，只能通过手动操作dom的方法
+            // document.body.removeChild(contentWrapper)//手动操作dom方法
+            visible.value = false //数据驱动视图方法，配合teleport传送门使用，vue3才能辨别到组件位置
         }
       } else {
         popoverRef.value.removeEventListener("mouseenter", proxy.open);
@@ -74,6 +73,7 @@ export default {
     });
 
     const positionContent = () => {
+        // document.body.appendChild(contentWrapperRef.value)//手动操作dom方法，已弃用
       const { width, height, top, left } =
         triggerWrapperRef.value.getBoundingClientRect();
       const { height: contentHeight } =
