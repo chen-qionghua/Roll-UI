@@ -1,14 +1,16 @@
 <template>
   <div class="popover" ref="popoverRef">
-    <div
-      ref="contentWrapperRef"
-      class="content-wrapper"
-      id="contentWrapper"
-      v-if="visible"
-      :class="`position-${position}`"
-    >
-      <slot name="content" :close="close"></slot>
-    </div>
+    <Teleport to="body">
+        <div
+        ref="contentWrapperRef"
+        class="content-wrapper"
+        id="contentWrapper"
+        v-if="visible"
+        :class="`position-${position}`"
+        >
+            <slot name="content" :close="close"></slot>
+        </div>
+    </Teleport>
     <span ref="triggerWrapperRef" style="display: indline-block">
       <slot></slot>
     </span>
@@ -18,7 +20,6 @@
 import {
   ref,
   onMounted,
-  onUnmounted,
   onBeforeUnmount,
   computed,
   getCurrentInstance,
@@ -50,7 +51,6 @@ export default {
     onMounted(() => {
       if (props.trigger === "click") {
         popoverRef.value.addEventListener("click", proxy.onClick);
-        // console.log("popoverRef.value11111111", popoverRef.value);
       } else {
         popoverRef.value.addEventListener("mouseenter", proxy.open);
         popoverRef.value.addEventListener("mouseleave", proxy.close);
@@ -65,28 +65,15 @@ export default {
         if(contentWrapper){
             document.body.removeChild(contentWrapper)
             // visible.value = false //打印为false 但dom节点无法销毁，思考原因？
+            //此组件手动操作dom后vue内部虚拟dom不知道/结构不同无法辨认，故数据驱动不成功，只能通过手动操作dom的方法
         }
       } else {
         popoverRef.value.removeEventListener("mouseenter", proxy.open);
         popoverRef.value.removeEventListener("mouseleave", proxy.close);
       }
     });
-    const openEvent = computed(() => {
-      if (props.trigger === "click") {
-        return "click";
-      } else {
-        return "mouseenter";
-      }
-    });
-    const closeEvent = computed(() => {
-      if (proxy.trigg === "click") {
-        return "click";
-      } else {
-        return "mouseleave";
-      }
-    });
+
     const positionContent = () => {
-      document.body.appendChild(contentWrapperRef.value);
       const { width, height, top, left } =
         triggerWrapperRef.value.getBoundingClientRect();
       const { height: contentHeight } =
@@ -151,8 +138,6 @@ export default {
       popoverRef,
       contentWrapperRef,
       triggerWrapperRef,
-      openEvent,
-      closeEvent,
       positionContent,
       onClickDocument,
       open,
