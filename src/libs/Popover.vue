@@ -1,15 +1,15 @@
 <template>
   <div class="popover" ref="popoverRef">
     <Teleport to="body">
-        <div
+      <div
         ref="contentWrapperRef"
         class="content-wrapper"
         id="contentWrapper"
         v-if="visible"
         :class="`position-${position}`"
-        >
-            <slot name="content" :close="close"></slot>
-        </div>
+      >
+        <slot name="content" :close="close"></slot>
+      </div>
     </Teleport>
     <span ref="triggerWrapperRef" style="display: indline-block">
       <slot></slot>
@@ -25,6 +25,7 @@ import {
   getCurrentInstance,
   nextTick,
 } from "vue";
+// import { useOnclick } from "../hooks/useOnclick";
 export default {
   props: {
     position: {
@@ -48,6 +49,7 @@ export default {
     const popoverRef = ref();
     const contentWrapperRef = ref();
     const triggerWrapperRef = ref();
+
     onMounted(() => {
       if (props.trigger === "click") {
         popoverRef.value.addEventListener("click", proxy.onClick);
@@ -60,11 +62,11 @@ export default {
       if (props.trigger === "click") {
         //onUnmounted拿不到popoverRef，故提前一点拿
         popoverRef.value.removeEventListener("click", proxy.onClick);
-        const contentWrapper =document.querySelector('#contentWrapper') 
+        const contentWrapper = document.querySelector("#contentWrapper");
         //切换菜单到别的组件时，需要销毁现dom
-        if(contentWrapper){
-            // document.body.removeChild(contentWrapper)//手动操作dom方法
-            visible.value = false //数据驱动视图方法，配合teleport传送门使用，vue3才能辨别到组件位置
+        if (contentWrapper) {
+          // document.body.removeChild(contentWrapper)//手动操作dom方法
+          visible.value = false; //数据驱动视图方法，配合teleport传送门使用，vue3才能辨别到组件位置
         }
       } else {
         popoverRef.value.removeEventListener("mouseenter", proxy.open);
@@ -73,7 +75,7 @@ export default {
     });
 
     const positionContent = () => {
-        // document.body.appendChild(contentWrapperRef.value)//手动操作dom方法，已弃用
+      // document.body.appendChild(contentWrapperRef.value)//手动操作dom方法，已弃用
       const { width, height, top, left } =
         triggerWrapperRef.value.getBoundingClientRect();
       const { height: contentHeight } =
@@ -97,6 +99,7 @@ export default {
         positions[props.position].left + "px";
       contentWrapperRef.value.style.top = positions[props.position].top + "px";
     };
+    //封装hooks？
     const onClickDocument = (e) => {
       if (
         popoverRef.value &&

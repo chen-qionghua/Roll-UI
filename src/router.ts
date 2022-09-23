@@ -9,6 +9,7 @@ import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 import ToastDemo from './components/ToastDemo.vue'
 import PopoverDemo from './components/PopoverDemo.vue'
+import GridDemo from './components/GridDemo.vue'
 
 import Markdown from './components/Markdown.vue'
 import Intro from './markdown/intro.md'
@@ -33,7 +34,8 @@ export const router = createRouter({
         { path: 'dialog', component: DialogDemo },
         { path: 'tabs', component: TabsDemo },
         { path: 'toast', component: ToastDemo },
-        { path: 'popover', component: PopoverDemo }
+        { path: 'popover', component: PopoverDemo },
+        { path: 'grid', component: GridDemo }
 
       ]
     }

@@ -23,7 +23,7 @@ export default {
       default: "",
     },
     autoClose: {
-      type: [Boolean, Number],
+      type: [Boolean, Number],//表示可选，即ts的partial工具的含义
       default: [true,2],
       validator(val) {
         return typeof val[0] === "boolean" || typeof val[1] === "number";
